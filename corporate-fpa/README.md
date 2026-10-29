@@ -2,12 +2,13 @@
 
 Skills and commands for financial planning and analysis inside an operating company: the office of the CFO, not the sell side or the buy side. The questions are "what will we spend next quarter, how confident should we be, and what do I tell the board," and the discipline is that no figure appears without a receipt.
 
-Version 0.1.2. Apache 2.0. Maintained by FinHelm Corp.
+Version 0.2.0. Apache 2.0. Maintained by FinHelm Corp.
 
 ## What this adds
 
 | Skill | Command | Description |
 | --- | --- | --- |
+| ledger-integrity | `/integrity` | Check whether the ledger is clean enough to report from: missing dimensions, repeated references, zero-price lines, listed for review |
 | forecast-reliability | `/forecast-score` | Score how much a forecast can be trusted, against its own history |
 | variance-decomposition | `/variance` | Decompose budget-versus-actual variance into the drivers that caused it |
 | cash-runway | `/runway` | Cash runway as a range with confidence bands, not a single date |
@@ -23,13 +24,15 @@ Every skill here describes how to run the work: what to gather, how to sequence 
 
 Install the skills alone and you get a practitioner's method and a set of honest refusals. Add the computation connector with a ledger it can read, and you get numbers.
 
+One skill needs no computation connector at all. Ledger integrity counts and lists; it produces no financial figure and no verdict on a record, so it runs on any ledger the assistant can read, and it is the first thing to run on a ledger nobody has reported from yet.
+
 ## Connecting a ledger
 
 This plugin does not build ERP connectors. It reads the one Sage Intacct publishes: a read-only MCP server in Sage's AI Gateway, governed by Intacct roles. That is the only ledger read path verified in this release. Other vendors' MCP servers can be added by the person installing; nothing here has been tested against them.
 
 The `finhelm` connector computes the reliability, distribution, bridge and sensitivity figures the skills reference. It requires a FinHelm account, reads the ledger itself through a FinHelm-connected ledger, and returns results with receipts. In this release it computes from QuickBooks Online and DualEntry; Sage Intacct follows with FinHelm's Intacct connector.
 
-**What that means on a Sage Intacct install today.** The skills run the method, read through Sage's connector for discovery, and stop at "requires the connector" rather than computing a forecast, a bridge, a range or a reliability band inline. Numbers Claude reads through Sage's connector are discovery, not readings. These skills never instruct the assistant to pass values read through Sage's connector into FinHelm's tools, and no FinHelm sign-in is needed to use them this way. That is a statement about what the skills instruct, not about everything the assistant processes or retains, which is governed by the terms of the Claude plan in use and by Sage's terms for the Gateway.
+**What that means on a Sage Intacct install today.** The ledger-integrity skill runs in full, because it computes nothing. The other six run the method, read through Sage's connector for discovery, and stop at "requires the connector" rather than computing a forecast, a bridge, a range or a reliability band inline. Numbers Claude reads through Sage's connector are discovery, not readings. These skills never instruct the assistant to pass values read through Sage's connector into FinHelm's tools, and no FinHelm sign-in is needed to use them this way. That is a statement about what the skills instruct, not about everything the assistant processes or retains, which is governed by the terms of the Claude plan in use and by Sage's terms for the Gateway.
 
 ## Installing
 
@@ -40,20 +43,20 @@ The `finhelm` connector computes the reliability, distribution, bridge and sensi
 /plugin install corporate-fpa@finhelm
 ```
 
-The six commands become available. Both connectors in `.mcp.json` are registered; each asks you to sign in the first time it is used, and you can leave the `finhelm` connector unsigned if you only want the method and the Sage read path.
+The seven commands become available. Both connectors in `.mcp.json` are registered; each asks you to sign in the first time it is used, and you can leave the `finhelm` connector unsigned if you only want the method and the Sage read path.
 
 **Claude on the web or Claude Desktop.** Commands are a Claude Code feature; here the skills are used by asking in plain language ("score the reliability of our operating expense forecast", "decompose the Q3 variance"). Two steps:
 
 1. Add the Sage Intacct connector in Claude's connector settings as a custom connector with the URL from `.mcp.json` and the OAuth client ID and secret your Intacct administrator created in Sage's developer portal. Sign in with Sage-hosted sign-in. Each person signs in individually.
-2. Upload the six skills. Each folder under `skills/` is one skill; zip each folder (the zip contains `SKILL.md` at its root) and add it in Claude's skills settings. Enable the ones you want.
+2. Upload the seven skills. Each folder under `skills/` is one skill; zip each folder (the zip contains `SKILL.md` at its root) and add it in Claude's skills settings. Enable the ones you want.
 
-Menu names move between releases of Claude; if yours differ, the two steps are the same: one connector, six skills.
+Menu names move between releases of Claude; if yours differ, the two steps are the same: one connector, seven skills.
 
 **Before you connect.** The Intacct administrator creates the OAuth client against an AI-enabled sender ID and a read-only role scoped to what the finance team should see. The role decides what the assistant can read. Keep a record of what was connected, by whom, and when, and know how to revoke it.
 
 ## Working on the Sage Intacct AI Gateway: rules the skills follow
 
-These come from verification on a non-production Intacct company, not from documentation, and every skill carries the same paragraph. Put them in your project instructions too, because the assistant does not keep what it learned last week unless it is written where it loads every session.
+These come from verification on a non-production Intacct company, not from documentation, and every skill carries the same section. Put them in your project instructions too, because the assistant does not keep what it learned last week unless it is written where it loads every session.
 
 - Page to completeness. The Gateway returns at most 100 records per page, with a flag that says whether more remain and a total count. Sum nothing until the flag is false, and state the total count beside any sum.
 - Actuals are posted entries from the operating accrual book. Journal-entry lines carry no book identifier; the book lives on the journal. Exclude consolidation books, adjustment journals and the Commitments book, or the figure is not an actual.

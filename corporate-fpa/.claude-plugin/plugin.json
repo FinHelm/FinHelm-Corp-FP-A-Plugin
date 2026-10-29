@@ -1,7 +1,7 @@
 {
   "name": "corporate-fpa",
-  "description": "Corporate FP&A for operating companies. Forecast reliability scoring, variance decomposition, probabilistic runway, driver sensitivity, scenario construction, and board packages. Reads the ledger through the ERP vendor's own MCP server; figures come from a computation connector, never from the model.",
-  "version": "0.1.2",
+  "description": "Corporate FP&A for operating companies. Ledger integrity checks, forecast reliability scoring, variance decomposition, probabilistic runway, driver sensitivity, scenario construction, and board packages. Reads the ledger through the ERP vendor's own MCP server; figures come from a computation connector, never from the model.",
+  "version": "0.2.0",
   "author": {
     "name": "FinHelm Corp",
     "url": "https://finhelm.ai"
@@ -14,7 +14,8 @@
     "cfo",
     "budgeting",
     "variance",
-    "sage-intacct"
+    "sage-intacct",
+    "data-integrity"
   ],
   "license": "Apache-2.0"
 }
