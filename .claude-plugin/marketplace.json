@@ -6,9 +6,9 @@
   },
   "plugins": [
     {
-      "name": "corporate-fpa",
-      "source": "./corporate-fpa",
-      "description": "Corporate FP&A toolkit: seven practitioner skills with slash commands for ledger integrity, forecast reliability, variance, runway, drivers, scenarios, and board packages. Skills carry method; connectors carry computation."
+      "name": "finhelm-corp-fpa",
+      "source": "./finhelm-corp-fpa",
+      "description": "FinHelm Corp FP&A plugin: seven practitioner skills with slash commands for ledger integrity, forecast reliability, variance, runway, drivers, scenarios, and board packages. Skills carry method; connectors carry computation."
     }
   ]
 }

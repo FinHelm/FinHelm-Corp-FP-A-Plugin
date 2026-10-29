@@ -1,8 +1,8 @@
-# Corporate FP&A
+# FinHelm Corp FP&A plugin
 
 Skills and commands for financial planning and analysis inside an operating company: the office of the CFO, not the sell side or the buy side. The questions are "what will we spend next quarter, how confident should we be, and what do I tell the board," and the discipline is that no figure appears without a receipt.
 
-Version 0.2.0. Apache 2.0. Maintained by FinHelm Corp.
+Version 0.2.1. Apache 2.0. Maintained by FinHelm Corp.
 
 ## What this adds
 
@@ -39,8 +39,8 @@ The `finhelm` connector computes the reliability, distribution, bridge and sensi
 **Claude Code.** Add this repository as a marketplace and install the plugin:
 
 ```
-/plugin marketplace add FinHelm/Corp-FP-A-Plugin
-/plugin install corporate-fpa@finhelm
+/plugin marketplace add FinHelm/FinHelm-Corp-FP-A-Plugin
+/plugin install finhelm-corp-fpa@finhelm
 ```
 
 The seven commands become available. Both connectors in `.mcp.json` are registered; each asks you to sign in the first time it is used, and you can leave the `finhelm` connector unsigned if you only want the method and the Sage read path.
@@ -78,4 +78,4 @@ These skills draft analyst work product for review by a qualified professional. 
 
 ## License
 
-Apache 2.0; see `LICENSE`. "FinHelm" and FinHelm's product names and marks are trademarks of FinHelm Corp and are not licensed under the Apache License; see `NOTICE`.
+Apache 2.0; see `LICENSE`. "FinHelm" and FinHelm's product names and marks are trademarks of FinHelm Corp and are not licensed under the Apache License; see `NOTICE`. The plugin's name carries the FinHelm mark; a fork or redistribution that FinHelm does not maintain should carry its own name.

@@ -1,0 +1,21 @@
+{
+  "name": "finhelm-corp-fpa",
+  "description": "FinHelm Corp FP&A plugin. Corporate FP&A for operating companies. Ledger integrity checks, forecast reliability scoring, variance decomposition, probabilistic runway, driver sensitivity, scenario construction, and board packages. Reads the ledger through the ERP vendor's own MCP server; figures come from a computation connector, never from the model.",
+  "version": "0.2.1",
+  "author": {
+    "name": "FinHelm Corp",
+    "url": "https://finhelm.ai"
+  },
+  "keywords": [
+    "fpa",
+    "forecasting",
+    "corporate-finance",
+    "erp",
+    "cfo",
+    "budgeting",
+    "variance",
+    "sage-intacct",
+    "data-integrity"
+  ],
+  "license": "Apache-2.0"
+}

@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.1, 29 October 2026
+
+- Public name: FinHelm Corp FP&A plugin. Plugin identifier `corporate-fpa` becomes `finhelm-corp-fpa`; the plugin folder is renamed to match; the install path points at the public repository `FinHelm/FinHelm-Corp-FP-A-Plugin`. Trademark note extended to the plugin name. No change to any skill, command or connector text.
+
 ## 0.2.0, 28 October 2026
 
 - New skill and command: ledger-integrity, `/integrity`. Built from three cases a distribution client reported in its first weeks on the Sage Intacct AI Gateway: posted transactions missing a required reporting dimension, invoices at a zero price, and repeated customer purchase-order numbers. Scope is set by the person (required dimensions per transaction type, journals the rule applies to, periods, entities, reference field); the skill supplies no default dimension list and never scores a journal the person excluded. Counts first, grouped by journal, then lists paged to completeness; header and line counts reconciled at the same entity scope; structural zero-amount lines separated by account before anything is flagged; every flagged record is for review, never an error. Produces no financial figure, so it runs in full without the computation connector.
