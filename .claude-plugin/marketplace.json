@@ -1,0 +1,14 @@
+{
+  "name": "finhelm",
+  "owner": {
+    "name": "FinHelm Corp",
+    "url": "https://finhelm.ai"
+  },
+  "plugins": [
+    {
+      "name": "corporate-fpa",
+      "source": "./corporate-fpa",
+      "description": "Corporate FP&A toolkit: six practitioner skills with slash commands for forecast reliability, variance, runway, drivers, scenarios, and board packages. Skills carry method; connectors carry computation."
+    }
+  ]
+}

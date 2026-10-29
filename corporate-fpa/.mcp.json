@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "finhelm": {
+      "type": "http",
+      "url": "https://horizon-mcp.finhelm.ai/api/mcp/v1",
+      "description": "FinHelm computation server. Computes forecast reliability, distributional forecasts, variance bridges and driver sensitivity from ledger data it reads itself through a FinHelm-connected ledger, and returns each result with a receipt. Requires a FinHelm account. Ledger rows are read for the computation and not retained. The skills in this plugin never instruct the assistant to pass values read through another connector into FinHelm's tools. Ledgers FinHelm can compute from in this release: QuickBooks Online and DualEntry; Sage Intacct follows with FinHelm's Intacct connector."
+    },
+    "sage-intacct": {
+      "type": "http",
+      "url": "https://mcp.intacct.com/mcp",
+      "description": "Sage Intacct MCP Server (AI Gateway). Read-only access governed by Intacct roles and permissions. Requires the AI Gateway add-on and a Web Services developer license, and an OAuth client (client ID and secret) created in Sage's developer portal for an AI-enabled sender; each person signs in through Sage-hosted sign-in. The URL alone does not connect. Query results arrive as structured content by default and are limited to 100 records per page; the skills request text output and page to completeness. Setup per Sage's MCP connection guide at developer.sage.com."
+    }
+  }
+}
