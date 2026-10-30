@@ -13,4 +13,4 @@ Install in Claude Code:
 /plugin install finhelm-corp-fpa@finhelm
 ```
 
-Releases are tagged; each release archive of `finhelm-corp-fpa/` is listed with its SHA-256 in `CHANGELOG.md` once cut. Feedback: open an issue with the question you asked, what the assistant did, and where it went wrong; no ledger data.
+Releases are tagged. Feedback: open an issue with the question you asked, what the assistant did, and where it went wrong; no ledger data.
