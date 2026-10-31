@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.2, 31 October 2026
+
+- README: in Claude on the web or the desktop app, the plugin installs from this repository through the Plugins page; the earlier instruction to add the connector by hand and upload skill files is withdrawn. No change to any skill, command or connector.
+
 ## 0.2.1, 29 October 2026
 
 - Published as the FinHelm Corp FP&A plugin. Plugin identifier is now `finhelm-corp-fpa` and the install path points at this repository. No change to any skill, command or connector.

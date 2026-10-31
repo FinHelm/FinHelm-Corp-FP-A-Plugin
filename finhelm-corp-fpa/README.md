@@ -45,12 +45,7 @@ The `finhelm` connector computes the reliability, distribution, bridge and sensi
 
 The seven commands become available. Both connectors in `.mcp.json` are registered; each asks you to sign in the first time it is used, and you can leave the `finhelm` connector unsigned if you only want the method and the Sage read path.
 
-**Claude on the web or Claude Desktop.** Commands are a Claude Code feature; here the skills are used by asking in plain language ("score the reliability of our operating expense forecast", "decompose the Q3 variance"). Two steps:
-
-1. Add the Sage Intacct connector in Claude's connector settings as a custom connector with the URL from `.mcp.json` and the OAuth client ID and secret your Intacct administrator created in Sage's developer portal. Sign in with Sage-hosted sign-in. Each person signs in individually.
-2. Upload the seven skills. Each folder under `skills/` is one skill; zip each folder (the zip contains `SKILL.md` at its root) and add it in Claude's skills settings. Enable the ones you want.
-
-Menu names move between releases of Claude; if yours differ, the two steps are the same: one connector, seven skills.
+**Claude on the web or Claude Desktop.** The plugin installs from this repository through Claude's Plugins page and brings its connectors and skills with it. Open Customize and go to Plugins, click Add, choose Add marketplace, then Add from a repository, and enter `FinHelm/FinHelm-Corp-FP-A-Plugin`; then install the FinHelm Corp FP&A plugin from that marketplace. The plugin declares two connectors: Sage Intacct, which the ledger reads need, and FinHelm, which is optional. When Claude asks you to connect Sage Intacct, sign in with the Sage-hosted sign-in your Intacct administrator set up; each person signs in individually. Commands are a Claude Code feature; here the skills are used by typing / in a chat or by asking in plain language ("score the reliability of our operating expense forecast", "decompose the Q3 variance"). Plugins are available on paid Claude plans; if your organization limits which marketplaces can be added, an Owner has to allow this repository first. Menu names move between releases of Claude; if yours differ, the sequence is the same: add the marketplace, install the plugin, ask.
 
 **Before you connect.** The Intacct administrator creates the OAuth client against an AI-enabled sender ID and a read-only role scoped to what the finance team should see. The role decides what the assistant can read. Keep a record of what was connected, by whom, and when, and know how to revoke it.
 

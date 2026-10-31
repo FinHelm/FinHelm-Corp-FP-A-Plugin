@@ -13,4 +13,6 @@ Install in Claude Code:
 /plugin install finhelm-corp-fpa@finhelm
 ```
 
+Install in Claude on the web or the desktop app: open Customize, go to Plugins, click Add, choose Add marketplace, then Add from a repository, enter `FinHelm/FinHelm-Corp-FP-A-Plugin`, and install the plugin. Its connectors and skills come with it.
+
 Releases are tagged. Feedback: open an issue with the question you asked, what the assistant did, and where it went wrong; no ledger data.
